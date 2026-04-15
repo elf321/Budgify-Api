@@ -1,10 +1,16 @@
 package com.example.Budgify_Api.services.transaction.dtos;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 public class TransactionDTO {
     @Data
-    public static class CreateRequest {
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Create{
         private String description;
         private Double amount;
         private Long categoryId;
@@ -12,7 +18,10 @@ public class TransactionDTO {
     }
 
     @Data
-    public static class Response {
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class View {
         private Long id;
         private String description;
         private Double amount;

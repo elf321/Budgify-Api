@@ -5,7 +5,7 @@ import lombok.Data;
 public class UserDTO {
 
     @Data
-    public static class CreateRequest {
+    public static class UserRegisterRequest {
         private String username;
         private String password;
         private String email;
@@ -14,7 +14,13 @@ public class UserDTO {
     }
 
     @Data
-    public static class Response {
+    public static class UserLoginRequest {
+        private String email;
+        private String password;
+    }
+
+    @Data
+    public static class UserResponse {
         private Long id;
         private String username;
         private String email;

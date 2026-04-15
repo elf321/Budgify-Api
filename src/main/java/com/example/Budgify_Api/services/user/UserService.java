@@ -15,28 +15,43 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserDTO.Response createUser(UserDTO.CreateRequest request) {
-        User user = new User();
+    public UserDTO.UserResponse registerUser(UserDTO.UserRegisterRequest request) {
+        if(userRepository.findByEmail(request.getEmail()).isPresent()) {
+            throw new RuntimeException("Email already in use");
+        }
 
+        User user = new User();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
-        user.setHashedPassword(request.getPassword());
         user.setName(request.getName());
         user.setSurname(request.getSurname());
+
+        user.setHashedPassword(request.getPassword());
 
         User savedUser = userRepository.save(user);
         return convertToResponse(savedUser);
     }
 
-    public List<UserDTO.Response> getAllUsers() {
+    public UserDTO.UserResponse loginUser(UserDTO.UserLoginRequest request) {
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new RuntimeException("User not found!"));
+
+        if(!user.getHashedPassword().equals(request.getPassword())) {
+            throw new RuntimeException("Invalid password!");
+        }
+
+        return convertToResponse(user);
+    }
+
+    public List<UserDTO.UserResponse> getAllUsers() {
         return userRepository.findAll()
                 .stream()
                 .map(this::convertToResponse)
                 .collect(Collectors.toList());
     }
 
-    private UserDTO.Response convertToResponse(User user) {
-        UserDTO.Response response = new UserDTO.Response();
+    private UserDTO.UserResponse convertToResponse(User user) {
+        UserDTO.UserResponse response = new UserDTO.UserResponse();
         response.setId(user.getId());
         response.setUsername(user.getUsername());
         response.setEmail(user.getEmail());
