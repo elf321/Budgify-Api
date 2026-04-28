@@ -36,6 +36,7 @@ public class TransactionService {
         transaction.setDate(LocalDateTime.now());
         transaction.setUser(user);
         transaction.setCategory(category);
+        transaction.setFinanceType(dto.getFinanceType());
 
         Transaction saved = transactionRepository.save(transaction);
 
@@ -57,6 +58,7 @@ public class TransactionService {
                 .date(t.getDate().toString())
                 .categoryName(t.getCategory().getName())
                 .categoryColor(t.getCategory().getColor())
+                .financeType(t.getFinanceType())
                 .build();
     }
 }

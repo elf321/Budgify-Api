@@ -1,5 +1,6 @@
 package com.example.Budgify_Api.services.transaction.dtos;
 
+import com.example.Budgify_Api.enums.GlobalEnums.FinanceType;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ public class TransactionDTO {
         private Double amount;
         private Long categoryId;
         private Long userId;
+        private FinanceType financeType;
     }
 
     @Data
@@ -28,5 +30,6 @@ public class TransactionDTO {
         private String categoryName;
         private String categoryColor;
         private String date;
+        private FinanceType financeType;
     }
 }

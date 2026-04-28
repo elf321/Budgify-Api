@@ -1,6 +1,7 @@
 package com.example.Budgify_Api.controllers;
 
 import com.example.Budgify_Api.entities.Category;
+import com.example.Budgify_Api.enums.CategoryType;
 import com.example.Budgify_Api.services.category.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +14,8 @@ import java.util.List;
 public class CategoryController {
     private final CategoryService categoryService;
 
-    @GetMapping
-    public List<Category> getAll() {
-        return categoryService.getAllCategories();
+    @GetMapping("/type/{type}")
+    public List<Category> getByType(@PathVariable String type) {
+        return categoryService.getCategoriesByType(type);
     }
 }

@@ -16,10 +16,14 @@ public class BudgetDTO {
     @Data
     public static class Response {
         private Long id;
+        private Long userId;
+        private Long categoryId;
         private Double totalAmount;
         private Double spentAmount;
         private Double remainingAmount;
         private String categoryName;
+        private String categoryIcon;
+        private String categoryColor;
         private Integer month;
         private Integer year;
     }
