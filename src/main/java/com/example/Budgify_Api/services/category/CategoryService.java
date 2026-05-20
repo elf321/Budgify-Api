@@ -1,7 +1,6 @@
 package com.example.Budgify_Api.services.category;
 
 import com.example.Budgify_Api.entities.Category;
-import com.example.Budgify_Api.enums.CategoryType;
 import com.example.Budgify_Api.repos.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

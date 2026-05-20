@@ -1,7 +1,6 @@
 package com.example.Budgify_Api.controllers;
 
 import com.example.Budgify_Api.entities.Category;
-import com.example.Budgify_Api.enums.CategoryType;
 import com.example.Budgify_Api.services.category.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

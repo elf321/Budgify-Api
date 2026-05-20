@@ -3,7 +3,6 @@ package com.example.Budgify_Api.entities;
 import com.example.Budgify_Api.enums.GlobalEnums.*;
 import jakarta.persistence.*;
 import lombok.Data;
-import com.example.Budgify_Api.enums.CategoryType;
 
 @Entity
 @Data
