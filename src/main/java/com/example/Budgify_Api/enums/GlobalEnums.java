@@ -5,4 +5,9 @@ public class GlobalEnums {
         INCOME,
         EXPENSE
     }
+
+    public enum TargetType {
+        GENERAL,
+        CATEGORY
+    }
 }
